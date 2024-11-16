@@ -73,13 +73,19 @@ const Checkout = () => {
               <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 mt-4">
                 <button
                   onClick={() => toggleMain(false)} // Show login form
-                  className="px-12 py-3 bg-green-500 text-white font-semibold rounded-md w-full md:w-auto"
+                  style={{
+                    backgroundColor : "#FF8A04"
+                  }}
+                  className="px-12 py-3 text-white font-semibold rounded-md w-full md:w-auto"
                 >
                   LOGIN
                 </button>
                 <button
                   onClick={() => toggleMain(true)} // Show sign-up form
-                  className="px-12 py-3 bg-green-500 text-white font-semibold rounded-md w-full md:w-auto"
+                  style={{
+                     backgroundColor : "#FF8A04"
+                  }}
+                  className="px-12 py-3 text-white font-semibold rounded-md w-full md:w-auto"
                 >
                   SIGN UP
                 </button>
