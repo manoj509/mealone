@@ -12,12 +12,13 @@ import Checkout from './user/pages/Checkout.jsx';
 // import UserDashboard from './user/pages/UserDashboard.jsx';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Home from './public/pages/Home';
+import UserDashboard from './user/pages/UserDashboard.jsx';
 const App = () => {
 
   return (
  <>
  <Router>
-  
+   {/* <UserDashboard/> */}
      <Routes>
      <Route path="/" element={<Home/>} />
      <Route path="/checkout" element={<Checkout/>} />

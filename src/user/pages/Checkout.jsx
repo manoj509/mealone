@@ -1,12 +1,12 @@
 
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import mealoneimg from "../assets/mealone.jpg";
 import SubscriptionPlanCard from '../components/SubscriptionPlanCard';
 import { Link } from 'react-router-dom';
-
+import LeftSideCanvaAddress from '../components/LeftSideCanvaAddress';
 // Validation schemas for login and signup forms
 const loginValidationSchema = Yup.object({
   phoneNumber: Yup.string().required('Phone number is required')
@@ -17,10 +17,60 @@ const signupValidationSchema = Yup.object({
   name: Yup.string().required('Name is required'),
   email: Yup.string().email('Invalid email format').required('Email is required')
 });
+const addresses = [
+  {
+    id: 1,
+    type: "Morning",
+    address: "flat 1, X2W2+XC Malhanwada, Madhya Pradesh, India",
+    deliveryTime: "52 MINS",
+    icon: (
+      <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="w-6 h-6"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M12 3v2.25m0 13.5V21m8.485-8.485h-2.25m-13.5 0H3m16.364-5.364l-1.591 1.591m-11.182 0L4.636 5.636m0 12.728l1.591-1.591m11.182 0l1.591 1.591M12 8.25a3.75 3.75 0 100 7.5 3.75 3.75 0 000-7.5z"
+      />
+    </svg>
+    
+    ),
+  },
+  {
+    id: 2,
+    type: "Evening",
+    address: "sdjkjk`, X2W2+XC Malhanwada, Madhya Pradesh, India",
+    deliveryTime: "52 MINS",
+    icon: (
+      <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  viewBox="0 0 24 24"
+  stroke-width="1.5"
+  stroke="currentColor"
+  class="w-6 h-6"
+>
+  <path
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    d="M21.752 15.002A9.718 9.718 0 0112 21.75 9.75 9.75 0 0112 3a9.718 9.718 0 019.752 6.748 6.001 6.001 0 00.018 5.254zm-6.006-.002a3.002 3.002 0 100-6.004 3.002 3.002 0 000 6.004z"
+  />
+</svg>
+
+    ),
+  },
+];
+
 
 const Checkout = () => {
   const [isLoginAndSignupToggle, setIsLoginAndSignupToggle] = useState(false); // toggles between Login and Signup forms
   const [isMainLoginAndSignupToggle, setIsMainLoginAndSignupToggle] = useState(true); // toggles between Login/Signup buttons and form view
+  const [isCanvasOpen, setIsCanvasOpen] = useState(false);
 
   // Toggle between main buttons (Login/Signup) and form view
   const toggleMain = (isSignUp) => {
@@ -32,6 +82,14 @@ const Checkout = () => {
   const toggleFormType = () => {
     setIsLoginAndSignupToggle(!isLoginAndSignupToggle);
   };
+  useEffect(() => {
+    if (isCanvasOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [isCanvasOpen]);
+
 
   return (
     
@@ -76,7 +134,7 @@ const Checkout = () => {
                   style={{
                     backgroundColor : "#FF8A04"
                   }}
-                  className="px-12 py-3 text-white font-semibold rounded-md w-full md:w-auto"
+                  className="px-6 py-3 bg-gradient-to-r from-green-400 to-blue-500 text-white text-lg font-bold rounded-lg hover:from-green-500 hover:to-blue-600 hover:scale-105 transform transition duration-300 shadow-lg"
                 >
                   LOGIN
                 </button>
@@ -85,7 +143,7 @@ const Checkout = () => {
                   style={{
                      backgroundColor : "#FF8A04"
                   }}
-                  className="px-12 py-3 text-white font-semibold rounded-md w-full md:w-auto"
+                  className="px-6 py-3 bg-gradient-to-r from-green-400 to-blue-500 text-white text-lg font-bold rounded-lg hover:from-green-500 hover:to-blue-600 hover:scale-105 transform transition duration-300 shadow-lg"
                 >
                   SIGN UP
                 </button>
@@ -157,7 +215,7 @@ const Checkout = () => {
       )}
       <button
         type="submit"
-        className="w-full mt-4 py-3 bg-green-500 text-white font-semibold rounded-md"
+        className="w-full px-6 py-3 bg-gradient-to-r from-green-400 to-blue-500 text-white text-lg font-bold rounded-lg hover:from-green-500 hover:to-blue-600 hover:scale-105 transform transition duration-300 shadow-lg"
         // disabled={isSubmitting}
       >
         {isLoginAndSignupToggle ? "CONTINUE" : "LOGIN"}
@@ -185,13 +243,51 @@ const Checkout = () => {
 
           {/* Delivery Address Section */}
           <div className="p-6 bg-white rounded-lg shadow-md">
-            <h2 className="text-xl font-semibold">Delivery Address</h2>
+            {/* <h2 className="text-xl font-semibold">Delivery Address</h2> */}
+            <div className=" bg-white rounded-lg">
+      <h2 className="text-xl font-semibold">Choose a delivery address</h2>
+      <p className="text-gray-600 mb-4">Multiple addresses in this location</p>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {addresses.map((address) => (
+          <div
+          onClick={() => setIsCanvasOpen(true)}
+            key={address.id}
+            className="border border-gray-300 rounded-lg p-4 flex flex-col space-y-4 hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-1 hover:scale-105"
+          >
+            <div className="flex items-center space-x-2">
+              {address.icon}
+              <h3 className="text-lg font-semibold">{address.type}</h3>
+              <h1 
+  class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500">+</h1>
+            </div>
+            <p className="text-sm text-gray-600">{address.address}</p>
+            <p className="text-sm font-semibold">{address.deliveryTime}</p>
+           
+        
+          </div>
+        ))}
+      </div>
+      <div className='text-center mt-4'>
+      <button 
+  class="px-6 py-3 bg-gradient-to-r from-green-400 to-blue-500 text-white text-lg font-bold rounded-lg hover:from-green-500 hover:to-blue-600 hover:scale-105 transform transition duration-300 shadow-lg"
+>
+  Deliver Here
+</button>
+      </div>
+      {isCanvasOpen && (
+        <div
+          className="fixed inset-0 bg-black opacity-50 z-40"
+          onClick={() => setIsCanvasOpen(false)}
+        />
+      )}
+      <LeftSideCanvaAddress isOpen={isCanvasOpen} onClose={() => setIsCanvasOpen(false)} />
+    </div>
           </div>
 
           {/* Payment Section */}
           <div className="p-6 bg-white rounded-lg shadow-md">
             <h2 className="text-xl font-semibold">Payment</h2>
-          </div>
+          </div> 
         </div>
 
         {/* Right Section (Order Summary) */}
@@ -204,3 +300,8 @@ const Checkout = () => {
 };
 
 export default Checkout;
+
+
+
+
+

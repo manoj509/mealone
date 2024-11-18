@@ -35,9 +35,9 @@ const PublicNavbar = () => {
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-6 text-black font-semibold">
-          <LinkScroll className='cursor-pointer' to='home' smooth={true} duration={500}>Home</LinkScroll>
-          <LinkScroll className='cursor-pointer' to='about' smooth={true} duration={500}>About us</LinkScroll>
-          <LinkScroll className='cursor-pointer' to='contact' smooth={true} duration={500}>Contact us</LinkScroll>
+          <LinkScroll className='cursor-pointer hover:border-b-4 hover:border-white' to='home' smooth={true} duration={500}>Home</LinkScroll>
+          <LinkScroll className='cursor-pointer hover:border-b-4 hover:border-white' to='about' smooth={true} duration={500}>About us</LinkScroll>
+          <LinkScroll className='cursor-pointer hover:border-b-4 hover:border-white' to='contact' smooth={true} duration={500}>Contact us</LinkScroll>
         </ul>
 
         {/* Register and Sign In Buttons for Desktop */}
@@ -63,9 +63,9 @@ const PublicNavbar = () => {
       {isMobileMenuOpen && (
         <div className="flex flex-col space-y-4 md:hidden">
           <ul className="space-y-2 text-black font-semibold">
-            <li className='cursor-pointer'>Home</li>
-            <li className='cursor-pointer'>About us</li>
-            <li className='cursor-pointer'>Contact us</li>
+            <li className='cursor-pointer hover:border-b-2 hover:border-white"'>Home</li>
+            <li className='cursor-pointer hover:border-b-2 hover:border-white"'>About us</li>
+            <li className='cursor-pointer hover:border-b-2 hover:border-white"'>Contact us</li>
           </ul>
           <div className="flex space-x-4">
             {/* <button className="bg-white text-black font-semibold px-4 py-2 rounded-full w-full">

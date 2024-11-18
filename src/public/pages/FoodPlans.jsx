@@ -3,9 +3,7 @@
 
 import React from 'react';
 import vegplanimage from "../assests/vegplanimage.png"; // Adjusted path to your assets folder
-import onetimeveg from "../assests/onetimeveg.png";
-import mealImage3 from "../../public/assests/mealone.jpg";
-import mealImage4 from "../../public/assests/mealone.jpg";
+
 import { Link } from 'react-router-dom';
 
 const FoodPlan = ({ title, description, price, image , desc  , permonth}) => {
@@ -17,9 +15,9 @@ const FoodPlan = ({ title, description, price, image , desc  , permonth}) => {
         margin: '1rem',
         backgroundColor : "#FF8A04",
         height : "230px",
-        width : "360px"
+        // width : "300px"
       }}
-      className="text-white p-4 sm:p-6 flex items-center shadow-lg relative max-w-lg transition-transform transform hover:scale-105"
+      className="w-72 md:w-96 text-white p-4 sm:p-6 flex items-center shadow-lg relative transition-transform transform hover:scale-105"
     >
       <div className="flex-grow pr-4 sm:pr-10">
         <h3 className="text-md sm:text-lg font-bold">{title}</h3>
@@ -43,6 +41,7 @@ const FoodPlan = ({ title, description, price, image , desc  , permonth}) => {
 const FoodPlans = () => {
   return (
     <section className="bg-gray-100 py-6 sm:py-12">
+ 
       <div className="text-center mb-6 sm:mb-8">
         <h2 className="text-2xl sm:text-3xl font-bold text-gray-800">Our Food Plan</h2>
            
