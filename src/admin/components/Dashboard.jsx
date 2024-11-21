@@ -12,13 +12,13 @@ const Dashboard = () => {
   return (
     <div className="p-4">
       <div className="flex space-x-4">
-      <Link to={"/a-dashboard/orders"}>
+      <Link to={"/admin/orders"}>
         <StatsCard title="Total Orders" count="50" icon="🛒" />
         </Link>
-        <Link to={"/a-dashboard/users"}>
+        <Link to={"/admin/users"}>
         <StatsCard title="Active Users" count="50" icon="👤" />
         </Link>
-        <Link to={"/a-dashboard/delivery-boy"}>
+        <Link to={"/admin/delivery-boy"}>
         <StatsCard title="Active Delivery boy" count="50" icon={ <FaTruck className="text-sm text-black" />} />
         </Link>
       </div>
