@@ -42,6 +42,12 @@ const PublicNavbar = () => {
 
         {/* Register and Sign In Buttons for Desktop */}
         <div className="hidden md:flex space-x-4">
+          <Link to={"/admin"}
+          type="button"
+          className="px-2 py-3 bg-gradient-to-r from-green-400 to-blue-500 text-white text-lg font-bold rounded-lg hover:from-green-500 hover:to-blue-600 hover:scale-105 transform transition duration-300 shadow-lg"
+        >
+          Admin Dashboard
+        </Link>
           <button
             className="bg-white text-black font-semibold px-4 py-2 rounded-full"
             onClick={() => setIsCanvasOpen(true)}
