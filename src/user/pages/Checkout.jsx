@@ -66,7 +66,6 @@ const addresses = [
   },
 ];
 
-
 const Checkout = () => {
   const [isLoginAndSignupToggle, setIsLoginAndSignupToggle] = useState(false); // toggles between Login and Signup forms
   const [isMainLoginAndSignupToggle, setIsMainLoginAndSignupToggle] = useState(true); // toggles between Login/Signup buttons and form view
@@ -91,9 +90,13 @@ const Checkout = () => {
   }, [isCanvasOpen]);
 
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   return (
     
-    <div className="min-h-screen bg-gray-100 md:px-6">
+    <div className=" min-h-screen bg-gray-100 md:px-6">
       <header className="flex items-center justify-between p-4 bg-white shadow-sm flex-col md:flex-row">
         <div className="flex items-center space-x-3 mb-4 md:mb-0">
          <Link to='/'>
