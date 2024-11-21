@@ -13,12 +13,12 @@ import {
   FaClipboardList,
   FaExclamationCircle,
 } from "react-icons/fa";
-
+import "./Sidebar.css"
 const Sidebar = () => {
   const currentLocation = useLocation();  // Rename `location` to `currentLocation` to avoid conflict
 
   return (
-    <div className="h-screen bg-gray-800 text-white w-52">
+    <div className="h-screen bg-gray-800 text-white w-52 sticky top-0 z-50">
       <h2 className="text-xl font-bold p-4">Navigation</h2>
       <ul className="space-y-4 p-4">
         {/* Dashboard Link */}

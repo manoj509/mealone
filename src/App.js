@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Checkout from "./user/pages/Checkout";
 import Home from "./public/pages/Home";
 import AdminDashboard from "./admin/pages/AdminDashboard";
+import "./admin/components/Sidebar.css"
 
 const App = () => {
   return (

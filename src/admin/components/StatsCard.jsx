@@ -7,8 +7,10 @@ const StatsCard = ({ title, count, icon }) => {
         <h3 className="text-lg font-bold">{title}</h3>
         <span>{icon}</span>
       </div>
+      <div className="flex justify-between items-center">
       <h1 className="text-3xl font-bold mt-2">{count}</h1>
-      <button className="mt-4 text-sm underline">View More...</button>
+      <button className="mt-2 text-sm underline">View More...</button>
+      </div>
     </div>
   );
 };
