@@ -6,14 +6,19 @@ import heroImage from "../assests/onlineservices.png"; // Up // Update this path
 
 const Hero = () => {
   return (
-    <div className="md:min-h-screen bg-gradient-to-r from-yellow-400 to-orange-500 flex flex-col items-center justify-center p-4">
+    <div  className="  bg-gradient-to-r from-yellow-400 to-orange-500 flex flex-col items-center justify-center p-4 pb-20">
       {/* Logo Section */}
-      <div className="flex flex-col items-center mb-6">
+      <div 
+      
+      className="flex flex-col items-center"
+      >
+
         <div 
         style={{
              animation: 'floatBackground 1s infinite alternate',
           }}
-         className="bg-black rounded-full w-36 h-36 md:w-48 md:h-48 flex items-center justify-center shadow-lg">
+         className="bg-black rounded-full w-36 h-36 md:w-48 md:h-48 flex items-center justify-center shadow-lg"
+         >
           <img style={{
              animation: 'floatBackground 1s infinite alternate',
           }} src={logo} alt="MealOne Logo" className="w-24 h-24 md:w-32 md:h-32 rounded-full" />
