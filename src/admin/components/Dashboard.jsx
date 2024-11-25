@@ -10,7 +10,7 @@ const Dashboard = () => {
     
       className=" hidden-scrollbar" // Add scrollable styles
     >
-      <div className="flex space-x-8">
+      <div className="flex justify-center space-x-8 container mx-auto px-4 lg:px-8">
         <Link to={"/admin/orders"}>
           <StatsCard title="Total Orders" count="50" icon="🛒" />
         </Link>
@@ -26,9 +26,9 @@ const Dashboard = () => {
         </Link>
       </div>
       {/* Chart Section */}
-      <div className="">
+   
         <ChartBox />
-      </div>
+      
     </div>
   );
 };

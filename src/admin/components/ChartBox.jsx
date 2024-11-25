@@ -101,7 +101,7 @@ const Dashboard = () => {
       </div>
 
       {/* Bottom Legends */}
-      <div className="flex mt-4 space-x-6">
+      {/* <div className="flex mt-4 space-x-6">
         <div className="flex items-center space-x-2">
           <div className="w-4 h-4 bg-red-500 rounded-full"></div>
           <p>Bhakar</p>
@@ -110,7 +110,7 @@ const Dashboard = () => {
           <div className="w-4 h-4 bg-orange-500 rounded-full"></div>
           <p>Chapati</p>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

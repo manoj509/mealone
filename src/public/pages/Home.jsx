@@ -6,6 +6,8 @@ import FoodPlans from './FoodPlans'
 import WorkingProcess from './WorkingProcess'
 import About from './About'
 import Footer from '../components/Footer'
+import DownloadAppPage from '../../user/components/DownloadAppPage'
+// import UserDashboard from '../../user/pages/UserDashboard'
 
 const Home = () => {
   return (
@@ -13,9 +15,10 @@ const Home = () => {
          <PublicNavbar/>
    <Hero/>
    <SpecialAboutUs/>
-   <FoodPlans/>
+  <FoodPlans/>
    <WorkingProcess/>
    <About/>
+   <DownloadAppPage/>
    <Footer/>
     </div>
   )
