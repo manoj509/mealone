@@ -127,8 +127,8 @@ const Plans = () => {
             <label className="block font-medium mb-2">Meal Type</label>
             <input
                 type="text"
-                name="mealtype"
-                value={editingPlan.mealType}
+                name="mealType"
+                value={newPlan.mealType}
                 onChange={handleChange}
                 className="w-full p-2 border rounded"
               />
