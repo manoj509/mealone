@@ -1,18 +1,22 @@
 
 import React from 'react';
-
 import logo from "../../public/assests/mealone.jpg"
 import heroImage from "../assests/onlineservices.png"; // Up // Update this path to match the background image location
 
 const Hero = () => {
+
+
+
+
   return (
-    <div  className="  bg-gradient-to-r from-yellow-400 to-orange-500 flex flex-col items-center justify-center p-4 pb-20">
+    <div  className="  bg-gradient-to-r from-yellow-400 to-orange-500 flex flex-col items-center justify-center p-4 pb-10">
       {/* Logo Section */}
       <div 
       
       className="flex flex-col items-center"
       >
-
+      <div className='flex gap-5'>
+      </div>
         <div 
         style={{
              animation: 'floatBackground 1s infinite alternate',

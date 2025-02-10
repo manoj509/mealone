@@ -122,6 +122,31 @@ const Sidebar = () => {
             )}
           </NavLink>
         </li>
+
+        <li>
+          <NavLink
+            to="/admin/delivery-boy-assign"
+            className={({ isActive }) =>
+              isActive
+                ? "flex items-center justify-between p-2 rounded bg-gray-700"
+                : "flex items-center justify-between p-2"
+            }
+          >
+            {({ isActive }) => (
+              <>
+                <div className="flex items-center">
+                  <FaTruck className="mr-2" />
+                  <span>Order Assign</span>
+                </div>
+                {isActive ? (
+                  <FaChevronDown className="text-sm" />
+                ) : (
+                  <FaChevronRight className="text-sm" />
+                )}
+              </>
+            )}
+          </NavLink>
+        </li>
         
 
         {/* Plans Link */}

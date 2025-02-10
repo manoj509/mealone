@@ -14,8 +14,8 @@ const Home = () => {
     <div>
          <PublicNavbar/>
    <Hero/>
-   <SpecialAboutUs/>
   <FoodPlans/>
+   <SpecialAboutUs/>
    <WorkingProcess/>
    <About/>
    <DownloadAppPage/>
