@@ -8,6 +8,9 @@ const MealPreparation = () => {
     { type: "Veg", item: "Bhakri", quantity: 60 },
     { type: "Non-Veg", item: "Chapati", quantity: 90 },
     { type: "Non-Veg", item: "Bhakri", quantity: 10 },
+    { type: "*", item: "Total Bhakri", quantity: 100 },
+    { type: "*", item: "Total Chapati", quantity: 100 },
+    { type: "*", item: "Total Tiffins", quantity: 200 },
   ];
 
   const downloadPDF = () => {

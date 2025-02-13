@@ -30,7 +30,6 @@ const Plans = () => {
       validityDays: "",
       maxTiffins: "",
       description: "",
-      image: null,
     },
     validationSchema: Yup.object({
       price: Yup.number()
@@ -44,7 +43,6 @@ const Plans = () => {
         .required("Max tiffins are required")
         .positive("Max tiffins must be positive"),
       description: Yup.string().required("Description is required"),
-      image: Yup.mixed().required("Image is required"),
     }),
     onSubmit: (values , {resetForm}) => {
       const formData = new FormData();
@@ -53,7 +51,6 @@ const Plans = () => {
       formData.append("validityDays", values.validityDays);
       formData.append("maxTiffins", values.maxTiffins);
       formData.append("description", values.description);
-      formData.append("image", values.image);
       dispatch(createPlan(formData));
       setShowForm(false);
       resetForm()
@@ -66,7 +63,6 @@ const Plans = () => {
       description: currentPlan?.description || "",
       validityDays: currentPlan?.validityDays || "",
       maxTiffins:currentPlan?.maxTiffins ||  "",
-      image: null,
     },
     enableReinitialize: true,
     validationSchema: Yup.object({
@@ -75,7 +71,6 @@ const Plans = () => {
       description: Yup.string().required("Description is required"),
       validityDays: Yup.string().required("validityDays is required"),
       maxTiffins: Yup.string().required("maxTiffins is required"),
-      image: Yup.string().required("image is required"),
     
     }),
     onSubmit: (values) => {
@@ -86,9 +81,7 @@ const Plans = () => {
       formData.append("validityDays", values.validityDays);
       formData.append("maxTiffins", values.maxTiffins);
       
-      if (values.image) {
-        formData.append("image", values.image);
-      }
+     
       dispatch(updatePlan({ planId: currentPlan._id, updatedData : formData }));
     },
   });
@@ -220,21 +213,7 @@ const Plans = () => {
             )}
           </div>
 
-          {/* Upload Meal Image */}
-          <div className="mb-4">
-            <label className="block font-medium mb-2">Upload Meal Image</label>
-            <input
-              type="file"
-              name="image"
-              onChange={(event) => formik.setFieldValue("image", event.currentTarget.files[0])}
-              className={`w-full ${
-                formik.errors.image && formik.touched.image ? "border-red-500" : ""
-              }`}
-            />
-            {formik.errors.image && formik.touched.image && (
-              <div className="text-red-500 text-sm">{formik.errors.image}</div>
-            )}
-          </div>
+          
 
           {/* Submit and Cancel Buttons */}
           <div className="flex justify-end">
@@ -268,7 +247,6 @@ const Plans = () => {
               <th className="border p-2">Price</th>
               <th className="border p-2">Meal Type</th>
               <th className="border p-2">Description</th>
-              <th className="border p-2">Image</th>
               <th className="border p-2">Actions</th>
             </tr>
           </thead>
@@ -279,14 +257,7 @@ const Plans = () => {
                 <td className="border p-2 text-center">{plan.price}</td>
                 <td className="border p-2 text-center">{plan.mealType}</td>
                 <td className="border p-2">{plan.description}</td>
-                <td className="flex justify-center border p-2 text-center">
-                  <img
-                    src={`http://localhost:5000/uploads/${plan.image}`.replace(/\\/g, "/")}
-                    alt="Plan"
-                    className="w-16 h-16 object-cover rounded"
-                  />
-                </td>
-               {console.log(`http://localhost:5000/uploads/${plan.image}`)}
+                
                 <td className="border p-2 text-center">
                   <button
                   onClick={()=>{ handleEditClick(plan); setShowEditePlan(true)} }
@@ -408,22 +379,8 @@ const Plans = () => {
         )}
       </div>
 
-      {/* Upload Meal Image */}
-      <div className="mb-4">
-        <label className="block font-medium mb-2">Upload Meal Image</label>
-        <input
-          type="file"
-          name="image"
-          onChange={(e) => editFormik.setFieldValue("image", e.currentTarget.files[0])}
-          className={`w-full ${
-            editFormik.errors.image && editFormik.touched.image ? "border-red-500" : ""
-          }`}
-        />
-        {editFormik.errors.image && editFormik.touched.image && (
-          <div className="text-red-500 text-sm">{editFormik.errors.image}</div>
-        )}
-      </div>
-
+      
+      
       {/* Action Buttons */}
       <div className="flex justify-end">
         <button
